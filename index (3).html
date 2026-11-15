@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ghosts of the Cosmos: Abandoned but Not Forgotten</title>
+<meta name="description" content="The stories of NASA's discarded equipment on the Moon and Mars, told by the machines themselves.">
+<meta property="og:title" content="Ghosts of the Cosmos: Abandoned but Not Forgotten">
+<meta property="og:description" content="Every machine has a story. Click a ghost to hear it.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛰️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--night:#101426;--panel:#1a2040;--line:#323a66;--dust:#e0714f;--reg:#d8d1c3;--sig:#7fd8c9;--text:#ecebe6;--mute:#aab0c8;--fs:1.05rem;--sy:0}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--night);color:var(--text);font:var(--fs)/1.65 "Atkinson Hyperlegible",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1;margin:0 0 .5em}
+h1{font-size:clamp(2.5rem,8vw,5.6rem);font-weight:800}h2{font-size:clamp(1.8rem,4.5vw,2.8rem)}
+a{color:var(--sig)}:focus-visible{outline:3px solid var(--sig);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}section{padding:76px 0;position:relative}
+button{font:inherit;cursor:pointer}
+.stars{position:fixed;inset:-20% 0;z-index:-1;pointer-events:none}
+.stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;animation:tw 3s infinite alternate}
+.s1{transform:translateY(calc(var(--sy)*-.05px))}.s2{transform:translateY(calc(var(--sy)*-.12px))}
+@keyframes tw{from{opacity:.15}to{opacity:.9}}
+/* header */
+header.bar{position:sticky;top:0;z-index:20;background:#101426eb;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.logo{font:800 1.25rem Fraunces,serif;color:var(--text);text-decoration:none}.logo span{color:var(--dust)}
+nav a{margin-right:14px;color:var(--reg);text-decoration:none}nav a:hover{color:var(--sig)}
+.ghost{background:transparent;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 12px}
+.ghost.on,.ghost[aria-pressed=true]{background:var(--sig);color:#08201c;border-color:var(--sig)}
+.btn{background:var(--dust);color:#1a0d08;border:0;border-radius:8px;padding:12px 22px;font-weight:700;text-decoration:none;display:inline-block;transition:transform .2s}.btn:hover{transform:translateY(-3px)}
+/* hero */
+.herobg{position:absolute;inset:0;background:center/auto 100% no-repeat;opacity:.5;animation:pan 60s ease-in-out infinite alternate}.herobg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#101426 12%,#10142666 70%,#101426cc),linear-gradient(transparent 60%,#101426)}@keyframes pan{from{background-position:0% 50%}to{background-position:100% 50%}}.hero .wrap{position:relative;z-index:2}.hero{min-height:88vh;display:flex;align-items:center;overflow:hidden;padding-bottom:60px}
+.hero p{font-size:1.25em;color:var(--reg);max-width:48ch}
+.earth{position:absolute;right:8%;top:12%;width:clamp(90px,16vw,190px);aspect-ratio:1;border-radius:50%;object-fit:cover;z-index:1;box-shadow:0 0 60px #4a8fe055;animation:bob 9s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(22px)}}
+.ground{position:absolute;left:-5%;right:-5%;bottom:0;height:110px;background:#2b2d3b;border-radius:50% 50% 0 0/100% 100% 0 0;border-top:2px solid #4a4d62}
+.rover{position:absolute;bottom:60px;left:-120px;width:110px;animation:drive 20s linear infinite}
+@keyframes drive{0%{transform:translateX(0);opacity:0}8%{opacity:1}50%{opacity:.35}92%{opacity:1}100%{transform:translateX(calc(100vw + 160px));opacity:0}}
+.wheel{transform-box:fill-box;transform-origin:center;animation:spin 1.2s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.tx{margin:26px 0;padding:16px 20px;border-left:4px solid var(--dust);background:var(--panel);max-width:540px;font:1.15rem Fraunces,serif;min-height:4.4em}
+.tx small{display:block;font:.85rem "Atkinson Hyperlegible",sans-serif;color:var(--mute);margin-top:6px}
+.cur::after{content:"▍";animation:bl 1s steps(1) infinite;color:var(--dust)}@keyframes bl{50%{opacity:0}}
+/* photos */
+.ph{margin:0;position:relative;overflow:hidden;border-radius:12px;background:linear-gradient(135deg,#1a2040,#3a2a3a);min-height:160px;display:flex;align-items:center;justify-content:center}
+.ph .fbk{font-size:3.2rem;position:absolute}.ph img{position:relative;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.ph:hover img{transform:scale(1.07)}
+.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 8px;font-size:.85rem;background:linear-gradient(transparent,#101426f0);z-index:2}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.world{display:grid;grid-template-columns:1fr 1fr;gap:20px}.world .ph{height:340px}
+.world a{display:block;text-decoration:none;color:var(--text)}.world h3{position:absolute;z-index:3;left:16px;bottom:50px;font-size:2rem;margin:0}
+.world p{position:absolute;z-index:3;left:16px;bottom:12px;margin:0;font-size:.95rem;right:16px}
+/* reveal */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+.stats b{display:block;font:800 clamp(2rem,6vw,3.4rem) Fraunces,serif;color:var(--dust)}
+/* cards */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:left;color:var(--text);padding:0;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-6px);border-color:var(--sig)}.card .ph{border-radius:0;height:170px}
+.card div{padding:12px 16px 16px}.card h3{font-size:1.2rem;margin:0 0 4px}.card small{color:var(--mute)}
+.tag{display:inline-block;font-size:.85rem;padding:2px 10px;border-radius:99px;border:1px solid var(--dust);color:var(--dust)}
+dialog{width:min(680px,94vw);max-height:92vh;overflow:auto;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:16px;padding:0}
+dialog::backdrop{background:#000b}dialog .in{padding:22px 26px 26px}dialog .ph{border-radius:0;height:280px}
+.voice{font:1.2rem Fraunces,serif;border-left:4px solid var(--dust);padding-left:14px;margin:14px 0}dialog h4{margin:14px 0 4px;color:var(--reg)}dialog ul{margin:0;padding-left:20px}
+.row{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+/* bars */
+.bar{margin:20px 0}.bar b{font-family:Fraunces,serif}.trk{height:16px;background:var(--panel);border-radius:9px;margin-top:6px;position:relative;overflow:hidden}
+.trk i{position:absolute;left:0;top:0;bottom:0;border-radius:9px;background:var(--sig);width:0;transition:width 2s cubic-bezier(.2,.8,.2,1)}
+.trk u{position:absolute;left:0;top:0;bottom:0;background:var(--dust);z-index:2;border-radius:9px;text-decoration:none}
+.bar.in .trk i{width:var(--w)}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}.gal .ph{height:220px}
+/* timeline */
+.tl{list-style:none;margin:20px 0 0;padding:0 0 0 24px;border-left:2px solid var(--line);position:relative}
+.tl li{position:relative;margin:0 0 20px;padding-left:14px}.tl li::before{content:"";position:absolute;left:-33px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--dust);border:3px solid var(--night);box-shadow:0 0 0 0 #e0714f88}
+.tl li.in::before{animation:ping 1.6s 1}@keyframes ping{70%{box-shadow:0 0 0 14px #e0714f00}}
+.tl b{font:1.3rem Fraunces,serif;margin-right:8px}.tl button{background:none;border:0;color:var(--sig);text-decoration:underline;padding:0}
+/* quiz */
+.quiz{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;max-width:680px}
+.prog{height:6px;background:var(--night);border-radius:4px;margin-bottom:14px}.prog i{display:block;height:100%;background:var(--sig);border-radius:4px;transition:width .5s}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:12px 14px;background:var(--night);color:var(--text);border:1px solid var(--line);border-radius:8px;transition:transform .2s}
+.opt:hover:not(:disabled){border-color:var(--sig);transform:translateX(6px)}.opt.good{border-color:var(--sig);background:#14403a}.opt.bad{border-color:var(--dust);background:#4a2217;animation:sh .4s}
+@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fb{min-height:3em;color:var(--reg)}.big{font-size:4rem;animation:pop .6s}@keyframes pop{from{transform:scale(0)}}
+.q{text-align:center;font:1.6rem Fraunces,serif;max-width:700px;margin:0 auto}
+footer{border-top:1px solid var(--line);padding:36px 0;color:var(--mute);font-size:.95rem}
+@media(max-width:700px){.two,.world,.stats{grid-template-columns:1fr 1fr}.two,.world{grid-template-columns:1fr}.earth{opacity:.5}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+body.calm *{animation:none!important}body.calm .rv{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="stars s1" id="s1" aria-hidden="true"></div><div class="stars s2" id="s2" aria-hidden="true"></div>
+
+<header class="bar"><div class="wrap">
+  <a class="logo" href="#top">Ghosts of the <span>Cosmos</span></a>
+  <nav aria-label="Main"><a href="#story">Story</a><a href="#artifacts">Machines</a><a href="#gallery">Photos</a><a href="#timeline">Timeline</a><a href="#quiz">Quizzes</a></nav>
+  <div><button class="ghost" id="fs" aria-label="Make text larger">A+</button> <button class="ghost" id="calm" aria-pressed="false">Reduce motion</button></div>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="herobg" id="hb" aria-hidden="true"></div><img class="earth" id="earth" alt="" aria-hidden="true">
+ <div class="wrap">
+  <h1>Abandoned,<br>but not forgotten.</h1>
+  <p>On the Moon and on Mars, NASA's machines finished their jobs and stayed behind. Meet them. Hear what they saw.</p>
+  <div class="tx" role="img" aria-label="A fictional last message from a rover: battery low, dust everywhere, still listening."><span id="tx" class="cur"></span><small>A made-up last message, in the spirit of Opportunity's final days.</small></div>
+  <a class="btn" href="#artifacts">Meet the machines</a>
+ </div>
+</section>
+
+<section id="story"><div class="wrap two">
+ <div class="rv"><h2>We explored. We left something behind.</h2>
+ <p>Every journey to another world ends the same way: the engines stop, the batteries fade, and the crew goes home or the signal goes quiet. The hardware stays.</p>
+ <p>Rovers, landers and instruments still sit where they stopped, some for more than fifty years. They aren't trash. They are the first chapters of a story you can still read in their dust.</p></div>
+ <div class="rv" id="p-earthrise"></div>
+</div></section>
+
+<section><div class="wrap"><h2 class="rv">Two worlds, many ghosts</h2>
+ <div class="world rv">
+  <a href="#artifacts" data-go="moon"><div id="p-moon"></div></a>
+  <a href="#artifacts" data-go="mars"><div id="p-mars"></div></a>
+ </div></div></section>
+
+<section><div class="wrap">
+ <div class="stats rv" id="stats">
+  <div><b data-n="3">0</b>Apollo rovers parked on the Moon</div>
+  <div><b data-n="45">0</b>kilometers driven by Opportunity</div>
+  <div><b data-n="1300">0</b>marsquakes heard by InSight</div>
+  <div><b data-n="72">0</b>flights by Ingenuity</div>
+ </div></div></section>
+
+<section><div class="wrap two">
+ <div class="rv" id="p-rover"></div>
+ <div class="rv"><span class="tag">Featured story, 1971</span><h2 style="margin-top:12px">The rover that still waits at Hadley</h2>
+ <p>Apollo 15 brought the first Lunar Roving Vehicle to the Moon. It folded up like a suitcase for the trip, then carried astronauts David Scott and James Irwin far beyond walking distance. When the mission ended, they parked it and left. It is still there.</p>
+ <button class="btn" data-open="lrv">Hear the rover's story</button></div>
+</div></section>
+
+<section id="artifacts"><div class="wrap">
+ <h2 class="rv">Meet the machines</h2><p>Tap a card to hear the machine speak.</p>
+ <div class="tabs" id="af"><button class="ghost on" data-f="all">All</button><button class="ghost" data-f="moon">Moon</button><button class="ghost" data-f="mars">Mars</button></div>
+ <div class="grid" id="grid"></div>
+</div></section>
+
+<section><div class="wrap"><h2 class="rv">Built for a short job, they kept going</h2>
+ <div class="bar rv"><b>Sojourner</b> planned 7 Martian days, worked about 83<div class="trk"><i style="--w:100%"></i><u style="width:8%"></u></div></div>
+ <div class="bar rv"><b>Opportunity</b> planned 90 days, worked nearly 14 years<div class="trk"><i style="--w:100%"></i><u style="width:2%"></u></div></div>
+ <div class="bar rv"><b>Ingenuity</b> planned 5 flights, made 72<div class="trk"><i style="--w:100%"></i><u style="width:7%"></u></div></div>
+ <p class="legend" style="color:var(--mute)">Orange is the plan. Teal is what happened.</p>
+</div></section>
+
+<section id="gallery"><div class="wrap"><h2 class="rv">Photo album from other worlds</h2><div class="gal" id="gal"></div></div></section>
+
+<section id="timeline"><div class="wrap"><h2 class="rv">A timeline of left-behind explorers</h2>
+ <div class="tabs" id="tf"><button class="ghost on" data-f="all">All</button><button class="ghost" data-f="moon">Moon</button><button class="ghost" data-f="mars">Mars</button></div>
+ <ol class="tl" id="tl"></ol></div></section>
+
+<section id="quiz"><div class="wrap"><h2 class="rv">Test your space smarts</h2>
+ <div class="tabs" id="qt"></div>
+ <div class="quiz" aria-live="polite"><div class="prog"><i id="pg" style="width:0"></i></div>
+  <p id="qn" style="color:var(--mute);margin:0"></p><h3 id="qq" style="margin-top:6px"></h3><div id="qo"></div><p class="fb" id="fb"></p><button class="btn" id="nx" hidden>Next</button></div>
+</div></section>
+
+<section><div class="wrap"><p class="q rv">Silent isn't the same as gone. Somewhere out there, a machine is still holding its place for us.</p></div></section>
+</main>
+
+<footer><div class="wrap">Facts: NASA mission pages (<a href="https://science.nasa.gov" target="_blank" rel="noopener">science.nasa.gov</a>), <a href="https://www.jpl.nasa.gov" target="_blank" rel="noopener">JPL</a> and the <a href="https://nssdc.gsfc.nasa.gov" target="_blank" rel="noopener">NSSDCA</a>. Photos: NASA, JPL-Caltech and Wikimedia Commons (public domain NASA images). The machines' voices are creative retellings of real events. Educational project for NASA Space Apps Challenge 2026. This is not an official NASA website.</div></footer>
+
+<dialog id="dlg" aria-labelledby="dn"><div id="dp"></div><div class="in">
+ <span class="tag" id="dt"></span><h3 id="dn" style="margin-top:8px"></h3><p class="voice" id="dv"></p>
+ <h4>Mission log</h4><ul id="df"></ul><h4>Fun fact</h4><p id="du" style="margin:0"></p>
+ <div class="row"><button class="ghost" id="rd">Read aloud</button><button class="ghost" id="cl">Close</button></div></div></dialog>
+
+<script>
+const IMG=(f,w)=>"https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(f)+"?width="+(w||900);
+function pic(f,alt,em,cap,w){return '<figure class="ph">'+(f?'<img loading="lazy" src="'+IMG(f,w)+'" alt="'+alt+'" onerror="this.remove()">':'')+(cap?'<figcaption>'+cap+'</figcaption>':'')+'</figure>'}
+const F={aldrin:"Aldrin Apollo 11 original.jpg",earthrise:"NASA-Apollo8-Dec24-Earthrise.jpg",rover:"Apollo 15 flag, rover, LM, Irwin.jpg",irwin:"Apollo 15 Rover, Irwin.jpg",hadley:"Apollo 15 Hadley Rille.jpg",sur:"Apollo12ConradSurveyor.jpg",a12:"Apollo 12 LRO.jpg",soj:"Sojourner on Mars PIA01122.jpg",vik:"PIA00567 Sunset at the Viking Lander 1 Site.jpg",ins:"PIA22873 Partial View of Insight's Robotic Arm and Deck.jpg",ing:"1st aerial image on mars taken by Ingenuity.jpg",three:"PIA15279 3rovers-stand D2011 1215 D521.jpg",opp:"22341 PIA22908-MarsOpportunityRover-LastPanorama-Spring2018-20190312.jpg"};
+const M=[
+{id:"eagle",n:"Eagle's descent stage",p:"moon",y:1969,s:"Silent",img:F.aldrin,e:"🌑",c:"Buzz Aldrin on the Moon, Apollo 11",
+ v:"I was the legs and the engine that carried two astronauts down to the Sea of Tranquility. When they flew home in my upper half, I stayed behind to keep the first footprints company.",
+ f:["Landed July 20, 1969, carrying Neil Armstrong and Buzz Aldrin.","Its landing engine slowed the lander for a gentle touchdown.","Left on the Moon as the launch platform for the ascent stage."],u:"A plaque on one of my legs says the astronauts came in peace for all mankind."},
+{id:"lrv",n:"Apollo Lunar Roving Vehicle",p:"moon",y:1971,s:"Silent",img:F.rover,e:"🚙",c:"The Apollo 15 rover beside the lander Falcon",
+ v:"I folded up like a suitcase and rode to the Moon on the side of a lander. Then two astronauts unfolded me and we went exploring far beyond walking distance.",
+ f:["Apollo 15, 16 and 17 each left one rover on the Moon.","Electric and battery powered, built to be folded for the trip.","Let astronauts collect rocks from much farther away."],u:"Astronauts drove us themselves, then parked us for good at the end of each mission."},
+{id:"sur3",n:"Surveyor 3",p:"moon",y:1967,s:"Silent",img:F.sur,e:"📷",c:"Pete Conrad examines Surveyor 3, 1969",
+ v:"I landed before any human did, to check whether the Moon's dust could hold up a lander. Two and a half years later, visitors walked over to say hello.",
+ f:["Landed April 1967 in the Ocean of Storms.","Sent thousands of photos and dug into the soil with a scoop.","Apollo 12 astronauts landed nearby in November 1969."],u:"Apollo 12 astronauts brought home pieces of me, including my camera, to study how space affects machines."},
+{id:"sojourner",n:"Sojourner",p:"mars",y:1997,s:"Silent",img:F.soj,e:"🤖",c:"Sojourner near the rock Yogi, 1997",
+ v:"I was no bigger than a microwave oven, but I was the first rover to roll across another planet. I only had to last a week. I kept going for almost three months.",
+ f:["Landed July 4, 1997 with the Pathfinder lander.","Planned for 7 Martian days, worked about 83.","Tested rocks with an instrument called an alpha proton X-ray spectrometer."],u:"Pathfinder landed with giant airbags and bounced across the surface before it stopped."},
+{id:"viking",n:"Viking 1 lander",p:"mars",y:1976,s:"Silent",img:F.vik,e:"",c:"Sunset at the Viking 1 landing site, 1976",
+ v:"I was the first lander to work on Mars for a long time. I scooped soil, took the first color photos from the ground and ran experiments to look for life.",
+ f:["Landed July 20, 1976 in Chryse Planitia.","Operated until November 1982.","Its life-detection experiments gave puzzling results scientists debated for years."],u:"It was later renamed the Thomas A. Mutch Memorial Station."},
+{id:"oppy",n:"Opportunity",p:"mars",y:2004,s:"Silent",img:F.opp,e:"🔭",c:"Opportunity's last panorama, 2018",
+ v:"They planned 90 days for me. I stayed for nearly fourteen years, climbing crater rims and reading rocks like pages of a history book, until a planet-wide dust storm blocked my sunlight.",
+ f:["Landed January 2004 on Meridiani Planum.","Found evidence that liquid water once soaked Martian rock.","Drove over 45 kilometers, farther than any other rover on another world."],u:"Its mission ended in 2019, after a giant dust storm covered its solar panels."},
+{id:"insight",n:"InSight",p:"mars",y:2018,s:"Silent",img:F.ins,e:"",c:"InSight's robotic arm and deck on the Martian plain",
+ v:"I never moved an inch. I just listened with a sensitive seismometer, and the whole planet whispered to me through marsquakes.",
+ f:["Landed November 2018 on Elysium Planitia.","Detected more than 1,300 marsquakes.","Used the shaking to learn what Mars is like deep inside.","Mission ended in December 2022."],u:"Dust slowly covered its solar panels until it could no longer power itself."},
+{id:"ingenuity",n:"Ingenuity helicopter",p:"mars",y:2021,s:"Silent",img:F.ing,e:"",c:"First color aerial image of Mars, taken by Ingenuity",
+ v:"I rode to Mars tucked under a rover. The air is so thin my blades had to spin incredibly fast just to lift me. Then I flew, and the textbooks changed.",
+ f:["First powered, controlled flight on another planet: April 19, 2021.","Planned for five flights, it made 72.","Mission ended in January 2024 after rotor damage."],u:"It was only meant to be a short technology test."}];
+const byId=id=>M.find(m=>m.id===id);
+// stars
+["s1","s2"].forEach((id,k)=>{let h="";for(let i=0;i<45;i++)h+='<i style="left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;animation-delay:'+Math.random()*3+'s;'+(k?'width:2px;height:2px':'')+'"></i>';document.getElementById(id).innerHTML=h});
+addEventListener("scroll",()=>document.documentElement.style.setProperty("--sy",scrollY),{passive:true});
+document.getElementById("hb").style.backgroundImage="url("+IMG(F.opp,2400)+")";
+const er=document.getElementById("earth");er.src=IMG("The Earth seen from Apollo 17.jpg",500);er.onerror=()=>er.remove();
+// static photos
+const put=(id,h)=>document.getElementById(id).innerHTML=h;
+put("p-earthrise",pic(F.earthrise,"Earth rising over the Moon's horizon, photographed by Apollo 8","🌍","Earthrise, seen by Apollo 8 astronauts"));
+put("p-moon",pic(F.irwin,"Astronaut James Irwin beside the Apollo 15 rover on the Moon","🌑",'<h3 style="position:static;font-size:2rem;margin:0">The Moon</h3>Rovers, lander legs and cameras left in silence.'));
+put("p-mars",pic(F.opp,"Last panorama taken by the Opportunity rover on Mars","🔴",'<h3 style="position:static;font-size:2rem;margin:0">Mars</h3>Rovers and landers waiting in red dust.'));
+put("p-rover",pic(F.rover,"Apollo 15 astronaut saluting the flag next to the rover and lander","🚙","Apollo 15 at Hadley, 1971",900));
+document.querySelectorAll(".world .ph").forEach(p=>p.style.height="340px");
+// grid
+function grid(f){document.getElementById("grid").innerHTML=M.filter(m=>f==="all"||m.p===f).map(m=>'<button class="card rv in" data-open="'+m.id+'" aria-label="Open story: '+m.n+'">'+pic(m.img,m.c||m.n,m.e,"",600)+'<div><h3>'+m.n+'</h3><small>'+(m.p==="moon"?"Moon":"Mars")+', '+m.y+'</small></div></button>').join("")}
+grid("all");
+document.getElementById("af").onclick=e=>{const b=e.target.closest("[data-f]");if(!b)return;document.querySelectorAll("#af button").forEach(x=>x.classList.toggle("on",x===b));grid(b.dataset.f)};
+document.querySelectorAll("[data-go]").forEach(a=>a.onclick=()=>setTimeout(()=>document.querySelector('#af [data-f="'+a.dataset.go+'"]').click(),50));
+// gallery
+put("gal",[[F.aldrin,"Buzz Aldrin on the lunar surface","🧑‍🚀","Apollo 11, 1969"],[F.irwin,"Irwin and the Apollo 15 rover","🚙","Apollo 15 rover at the end of the first moonwalk"],[F.hadley,"Hadley Rille and the Apollo 15 landing site","🌑","Hadley Rille from lunar orbit"],[F.sur,"Conrad inspecting Surveyor 3","📷","Pete Conrad visits Surveyor 3"],[F.a12,"Apollo 12 landing site seen by LRO","🛰️","Today: Apollo 12 and Surveyor 3, photographed from orbit"],[F.soj,"Sojourner on Mars","🤖","Sojourner at work on Mars"],[F.three,"Three generations of Mars rovers","🔴","Sojourner's spare with its larger descendants"],[F.opp,"Opportunity's last panorama","🔭","Opportunity's final panorama, 2018"]].map(g=>pic(g[0],g[1],g[2],g[3],700)).join(""));
+// dialog
+const dlg=document.getElementById("dlg");let cur;
+function open(id){cur=byId(id);dp.innerHTML=pic(cur.img,cur.c||cur.n,cur.e,cur.c,1000);dt.textContent="Silent since "+(cur.id==="lrv"?"1972":cur.y>2000?"the mission ended":"long ago");dt.textContent=cur.s;
+ dn.textContent=cur.n+" ("+cur.y+")";dv.textContent="\u201C"+cur.v+"\u201D";df.innerHTML=cur.f.map(x=>"<li>"+x+"</li>").join("");du.textContent=cur.u;speechSynthesis.cancel();dlg.showModal()}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)open(b.dataset.open)});
+cl.onclick=()=>{speechSynthesis.cancel();dlg.close()};dlg.onclick=e=>{if(e.target===dlg)cl.onclick()};
+rd.onclick=()=>{if(!("speechSynthesis" in window)){rd.textContent="Not supported";return}speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(cur.n+". "+cur.v+" "+cur.f.join(" ")+" Fun fact: "+cur.u))};
+// timeline
+function tl(f){const o=document.getElementById("tl");o.innerHTML=[...M].filter(m=>f==="all"||m.p===f).sort((a,b)=>a.y-b.y).map(m=>'<li class="rv"><b>'+m.y+'</b><button data-open="'+m.id+'">'+m.n+'</button> <small style="color:var(--mute)">'+(m.p==="moon"?"Moon":"Mars")+'</small></li>').join("");o.querySelectorAll(".rv").forEach(watch)}
+document.getElementById("tf").onclick=e=>{const b=e.target.closest("[data-f]");if(!b)return;document.querySelectorAll("#tf button").forEach(x=>x.classList.toggle("on",x===b));tl(b.dataset.f)};
+// reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);en.target.querySelectorAll("[data-n]").forEach(c=>{const n=+c.dataset.n;let t=0;const s=setInterval(()=>{t+=Math.ceil(n/50);if(t>=n){t=n;clearInterval(s)}c.textContent=t.toLocaleString()},30)})}}),{threshold:.2});
+function watch(el){io.observe(el)}document.querySelectorAll(".rv").forEach(watch);tl("all");
+// hero typing
+const msg="Battery low. Dust everywhere. Still listening.",tx=document.getElementById("tx");
+if(matchMedia("(prefers-reduced-motion:reduce)").matches){tx.textContent=msg;tx.classList.remove("cur")}else{let i=0;(function t(){tx.textContent=msg.slice(0,i++);if(i<=msg.length)setTimeout(t,70);else setTimeout(()=>{i=0;t()},4500)})()}
+// quizzes
+const Z=[
+{t:"Moon quiz",q:[["Which Apollo mission first carried a lunar rover?",["Apollo 11","Apollo 15","Apollo 8"],1,"Apollo 15 in 1971 used the first Lunar Roving Vehicle."],["How many Apollo rovers were left on the Moon?",["One","Two","Three"],2,"Apollo 15, 16 and 17 each left one."],["What was special about Surveyor 3?",["It was the first rover","Humans later visited it on another world","It carried astronauts"],1,"Apollo 12 astronauts walked to it and brought parts home."],["What did the Eagle descent stage do for the ascent stage?",["Served as its launch platform","Towed it home","Fed it fuel in orbit"],0,"The ascent stage lifted off from the descent stage."],["Why did the rover fold up?",["To save paint","To fit on the side of the lander for the trip","So it could swim"],1,"Folding let it ride to the Moon on the lander."]]},
+{t:"Mars quiz",q:[["What was the first rover on Mars?",["Sojourner","Opportunity","Ingenuity"],0,"Sojourner landed with Pathfinder in 1997."],["How long was Opportunity planned to work?",["About 90 days","About 5 years","About 14 years"],0,"It lasted nearly 14 years."],["How many flights was Ingenuity planned for?",["5","30","72"],0,"It made 72."],["What did InSight listen for?",["Radio from Earth","Marsquakes","Wind chimes"],1,"It detected more than 1,300 marsquakes."],["What ended Opportunity's mission?",["A dust storm blocked its sunlight","It ran out of wheels","It was recalled"],0,"A global dust storm in 2018 covered its solar panels."]]},
+{t:"True or false",q:[["Sojourner was about the size of a microwave oven.",["True","False"],0,"It was about 65 cm long."],["Apollo rovers were remote controlled from Earth.",["True","False"],1,"Astronauts drove them."],["Humans have driven a rover on Mars.",["True","False"],1,"All Mars rovers so far are robots."],["Surveyor 3 landed before any human reached the Moon.",["True","False"],0,"It landed in 1967; Apollo 11 followed in 1969."],["InSight drove around Mars exploring.",["True","False"],1,"InSight was a stationary lander."]]},
+{t:"Which explorer are you?",who:1,q:[["Your perfect day?",["Exploring somewhere new","Never giving up on a long project","Trying something nobody has tried","Sitting quietly and listening"],"Sojourner,Opportunity,Ingenuity,InSight"],["Friends describe you as...",["Small but brave","Super stubborn","A bold risk taker","A great listener"],"Sojourner,Opportunity,Ingenuity,InSight"],["Your superpower?",["Curiosity","Endurance","Flying high","Sensing tiny signals"],"Sojourner,Opportunity,Ingenuity,InSight"]],
+ r:{Sojourner:"Sojourner: small, curious and brave, always the first to try.",Opportunity:"Opportunity: patient, tough and ready to outlast every plan.",Ingenuity:"Ingenuity: daring, clever and happy to make history.",InSight:"InSight: a calm listener who hears what others miss."}}];
+let zi=0,qi=0,sc=0,tally={};
+document.getElementById("qt").innerHTML=Z.map((z,i)=>'<button class="ghost'+(i?'':' on')+'" data-z="'+i+'">'+z.t+'</button>').join("");
+document.getElementById("qt").onclick=e=>{const b=e.target.closest("[data-z]");if(!b)return;document.querySelectorAll("#qt button").forEach(x=>x.classList.toggle("on",x===b));zi=+b.dataset.z;qi=0;sc=0;tally={};ask()};
+function ask(){const z=Z[zi];nx.hidden=true;fb.textContent="";pg.style.width=(qi/z.q.length*100)+"%";
+ if(qi>=z.q.length){qn.textContent="Finished";let res;
+  if(z.who){const w=Object.keys(tally).sort((a,b)=>tally[b]-tally[a])[0];res=z.r[w]}else res="You scored "+sc+" out of "+z.q.length+(sc>=4?". Mission control is impressed!":". Try again, explorer!");
+  qq.innerHTML=res;qo.innerHTML='<button class="btn" id="rs">Play again</button>';rs.onclick=()=>{qi=0;sc=0;tally={};ask()};return}
+ const c=z.q[qi];qn.textContent="Question "+(qi+1)+" of "+z.q.length;qq.textContent=c[0];qo.innerHTML="";
+ c[1].forEach((t,i)=>{const b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=()=>{
+  if(z.who){const k=c[2].split(",")[i];tally[k]=(tally[k]||0)+1;qi++;ask();return}
+  [...qo.children].forEach((x,j)=>{x.disabled=true;if(j===c[2])x.classList.add("good")});
+  if(i===c[2]){sc++;fb.textContent="Correct! "+c[3]}else{b.classList.add("bad");fb.textContent="Not quite. "+c[3]}
+  nx.textContent=qi===z.q.length-1?"See score":"Next";nx.hidden=false};qo.appendChild(b)})}
+nx.onclick=()=>{qi++;ask()};ask();
+// accessibility
+let big=false;fs.onclick=()=>{big=!big;document.documentElement.style.setProperty("--fs",big?"1.25rem":"1.05rem");fs.textContent=big?"A-":"A+"};
+calm.onclick=()=>{calm.setAttribute("aria-pressed",document.body.classList.toggle("calm"))};
+</script>
+</body>
+</html>
